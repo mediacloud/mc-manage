@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "mc-manage"
-version="v1.1.2"
+version="v1.1.4"
 dependencies = [
   "pyairtable == 2.3.*"
 ]
