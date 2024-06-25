@@ -99,4 +99,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    create_deployment(args., args.name, args.env, args.version, args.hardware)
+    create_deployment(args.codebase, args.name, args.env, args.version, args.hardware)
