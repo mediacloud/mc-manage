@@ -1,6 +1,6 @@
 [project]
 name = "mc-manage"
-version="v1.0"
+version="v1.1"
 dependencies = [
   "pyairtable == 2.3.*"
 ]
