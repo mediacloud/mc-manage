@@ -1,0 +1,15 @@
+[project]
+name = "mc-manage"
+version="v1.0"
+dependencies = [
+  "pyairtable == 2.3.*"
+]
+requires-python = ">=3.10"
+authors = [
+  {name = "Paige Gulley", email = "pgulley@mediacloud.org"}
+]
+
+description = "Frequently re-used management scripts for the mediacloud stack."
+readme = "README.md"
+
+
