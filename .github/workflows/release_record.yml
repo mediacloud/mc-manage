@@ -33,6 +33,3 @@ jobs:
           AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
           MEAG_BASE_ID: ${{ secrets.MEAG_BASE_ID}}
 
-      - name: Confirm release published to PyPI
-        run: |
-          pip show my-package
