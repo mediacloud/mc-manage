@@ -20,7 +20,7 @@ jobs:
 
       - name: Install mc-manage package
         run: |
-          pip install git+https://github.com/mediacloud/mc-manage@v1.1.5b
+          pip install git+https://github.com/mediacloud/mc-manage@v1.1.5
 
       - name: Record successful release
         run: |
