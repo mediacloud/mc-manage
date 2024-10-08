@@ -20,11 +20,14 @@ jobs:
 
       - name: Install mc-manage package
         run: |
-          pip install git+https://github.com/mediacloud/mc-manage@v1.1.5
+          pip install git+https://github.com/mediacloud/mc-manage@v1.1.5b
 
       - name: Record successful release
         run: |
           python -m mc-manage.airtable-release-update --name mc-manage --version ${{ github.event.release.tag_name }}
+        env:
+          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+          MEAG_BASE_ID: ${{ secrets.MEAG_BASE_ID}}
 
       - name: Confirm release published to PyPI
         run: |
