@@ -1,0 +1,31 @@
+name: Record Release to Airtable
+
+on: 
+  push:
+    tags: 
+      - "*"
+
+jobs:
+  record-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install mc-manage package
+        run: |
+          pip install git+https://github.com/mediacloud/mc-manage@v1.1.5
+
+      - name: Record successful release
+        run: |
+          python -m mc-manage.airtable-release-update --name mc-manage --version ${{ github.event.release.tag_name }}
+
+      - name: Confirm release published to PyPI
+        run: |
+          pip show my-package
