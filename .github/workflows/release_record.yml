@@ -22,9 +22,13 @@ jobs:
         run: |
           pip install git+https://github.com/mediacloud/mc-manage@v1.1.5
 
+      - name: Get tag name
+        id: extract_tag
+        run: echo "TAG_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+
       - name: Record successful release
         run: |
-          python -m mc-manage.airtable-release-update --name mc-manage --version ${{ github.event.release.tag_name }}
+          python -m mc-manage.airtable-release-update --name mc-manage --version ${{ env.TAG_NAME }}
         env:
           AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
           MEAG_BASE_ID: ${{ secrets.MEAG_BASE_ID}}
